@@ -1,0 +1,78 @@
+﻿Id,Code,Name,Class,Standard Concept Caption,Valid Start Date,Valid End Date
+4138327,426107000,Acute lacunar infarction,Disorder,Standard,07-31-07,12-31-99
+4048784,230707007,Anterior cerebral circulation hemorrhagic infarction,Disorder,Standard,01-31-02,12-31-99
+4045735,230693009,Anterior cerebral circulation infarction,Disorder,Standard,01-31-02,12-31-99
+4031045,14309005,Anterior choroidal artery syndrome,Disorder,Standard,01-31-02,12-31-99
+37155661,293671000119109,Behavioral disturbance due to multi-infarct dementia,Disorder,Standard,04-30-22,12-31-99
+761110,151161000119102,Bilateral cerebral infarction due to precererbral arterial occlusion,Disorder,Standard,01-09-16,12-31-99
+4110189,195185009,Cerebral infarct due to thrombosis of precerebral arteries,Disorder,Standard,01-31-02,12-31-99
+443454,432504007,Cerebral infarction,Disorder,Standard,07-31-08,12-31-99
+762951,434151000124101,Cerebral infarction due to anterior cerebral artery occlusion,Disorder,Standard,01-03-13,12-31-99
+765515,434991000124105,Cerebral infarction due to basilar artery stenosis,Disorder,Standard,01-09-13,12-31-99
+43530683,149821000119103,Cerebral infarction due to carotid artery occlusion,Disorder,Standard,07-31-13,12-31-99
+762933,433891000124100,Cerebral infarction due to cerebral artery occlusion,Disorder,Standard,01-03-13,12-31-99
+762937,433961000124100,Cerebral infarction due to cerebral venous thrombosis,Disorder,Standard,01-03-13,12-31-99
+4111714,195230003,"Cerebral infarction due to cerebral venous thrombosis, non-pyogenic",Disorder,Standard,01-31-02,12-31-99
+4108356,195190007,Cerebral infarction due to embolism of cerebral arteries,Disorder,Standard,01-31-02,12-31-99
+45772786,705128004,Cerebral infarction due to embolism of middle cerebral artery,Disorder,Standard,01-31-15,12-31-99
+4110190,195186005,Cerebral infarction due to embolism of precerebral arteries,Disorder,Standard,01-31-02,12-31-99
+762935,433931000124109,Cerebral infarction due to internal carotid artery occlusion,Disorder,Standard,01-03-13,12-31-99
+763015,434961000124102,Cerebral infarction due to middle cerebral artery occlusion,Disorder,Standard,01-09-13,12-31-99
+46273649,34181000119102,Cerebral infarction due to occlusion of basilar artery,Disorder,Standard,07-31-15,12-31-99
+35610084,1089411000000104,Cerebral infarction due to occlusion of cerebral artery,Disorder,Standard,01-04-18,12-31-99
+46270031,125081000119106,Cerebral infarction due to occlusion of precerebral artery,Disorder,Standard,07-31-15,12-31-99
+762934,433911000124103,Cerebral infarction due to posterior cerebral artery occlusion,Disorder,Standard,01-03-13,12-31-99
+43531607,99451000119105,Cerebral infarction due to stenosis of carotid artery,Disorder,Standard,07-31-13,12-31-99
+35610085,1089421000000105,Cerebral infarction due to stenosis of cerebral artery,Disorder,Standard,01-04-18,12-31-99
+46270381,293831000119105,Cerebral infarction due to stenosis of precerebral artery,Disorder,Standard,07-31-15,12-31-99
+4110192,195189003,Cerebral infarction due to thrombosis of cerebral arteries,Disorder,Standard,01-31-02,12-31-99
+45767658,705130002,Cerebral infarction due to thrombosis of middle cerebral artery,Disorder,Standard,01-31-15,12-31-99
+44782773,34191000119104,Cerebral infarction due to vertebral artery occlusion,Disorder,Standard,01-31-14,12-31-99
+46270380,293811000119100,Cerebral infarction due to vertebral artery stenosis,Disorder,Standard,07-31-15,12-31-99
+37110678,724993002,Cerebral ischemic stroke due to occlusion of extracranial large artery,Disorder,Standard,07-31-17,12-31-99
+37110679,724994008,Cerebral ischemic stroke due to stenosis of extracranial large artery,Disorder,Standard,07-31-17,12-31-99
+4045741,230703006,Dysarthria-clumsy hand syndrome,Disorder,Standard,01-31-02,12-31-99
+4046362,230706003,Hemorrhagic cerebral infarction,Disorder,Standard,01-31-02,12-31-99
+37169804,1163482004,Hemorrhagic cerebral infarction caused by Aspergillus,Disorder,Standard,09-30-21,12-31-99
+37166871,1260271009,Hemorrhagic cerebral infarction due to hypertension,Disorder,Standard,01-31-23,12-31-99
+4131383,413102000,Infarction of basal ganglia,Disorder,Standard,07-31-04,12-31-99
+4116315,302902003,Infarction of optic chiasm,Disorder,Standard,01-31-02,12-31-99
+4046237,230523009,Infarction of optic radiation,Disorder,Standard,01-31-02,12-31-99
+4043567,230518009,Infarction of optic tract,Disorder,Standard,01-31-02,12-31-99
+4119140,302904002,Infarction of visual cortex,Disorder,Standard,01-31-02,12-31-99
+4043731,230692004,Infarction - precerebral,Disorder,Standard,01-31-02,12-31-99
+40479572,441526008,Infarct of cerebrum due to iatrogenic cerebrovascular accident,Disorder,Standard,07-31-09,12-31-99
+4045740,230702001,Lacunar ataxic hemiparesis,Disorder,Standard,01-31-02,12-31-99
+42535466,292861000119106,Lacunar ataxic hemiparesis of left dominant side,Disorder,Standard,01-31-18,12-31-99
+42535523,330411000119109,Lacunar ataxic hemiparesis of left nondominant side,Disorder,Standard,01-31-18,12-31-99
+42535465,292851000119109,Lacunar ataxic hemiparesis of right dominant side,Disorder,Standard,01-31-18,12-31-99
+42535524,330421000119102,Lacunar ataxic hemiparesis of right nondominant side,Disorder,Standard,01-31-18,12-31-99
+4046360,230698000,Lacunar infarction,Disorder,Standard,01-31-02,12-31-99
+4141405,307766002,Left sided cerebral infarction,Disorder,Standard,01-31-02,12-31-99
+37164462,1231168008,Malignant middle cerebral artery syndrome,Disorder,Standard,06-30-22,12-31-99
+4046090,230287006,Mixed cortical and subcortical vascular dementia,Disorder,Standard,01-31-02,12-31-99
+37116473,733199002,Multifocal cerebral infarction due to and following procedure on cardiovascular system,Disorder,Standard,07-31-17,12-31-99
+379778,56267009,Multi-infarct dementia,Disorder,Standard,01-31-02,12-31-99
+37395562,106021000119105,Multi-infarct dementia due to atherosclerosis,Disorder,Standard,07-31-16,12-31-99
+377254,70936005,"Multi-infarct dementia, uncomplicated",Disorder,Standard,01-31-02,12-31-99
+444091,10349009,Multi-infarct dementia with delirium,Disorder,Standard,01-31-02,12-31-99
+443790,25772007,Multi-infarct dementia with delusions,Disorder,Standard,01-31-02,12-31-99
+443864,14070001,Multi-infarct dementia with depression,Disorder,Standard,01-31-02,12-31-99
+763009,434881000124100,Multiple and bilateral precerebral arterial occlusion with infarction,Disorder,Standard,01-09-13,12-31-99
+762708,430851000124104,Multiple and bilateral precerebral artery stenosis with infarction,Disorder,Standard,01-09-12,12-31-99
+4145897,307363008,Multiple lacunar infarcts,Disorder,Standard,01-31-02,12-31-99
+4077086,276219001,Occipital cerebral infarction,Disorder,Standard,01-31-02,12-31-99
+765907,433941000124104,Occlusion and stenosis of middle cerebral artery with infarction,Disorder,Standard,01-03-13,12-31-99
+4046359,230695002,Partial anterior cerebral circulation infarction,Disorder,Standard,01-31-02,12-31-99
+4298750,384993003,Periventricular hemorrhagic venous infarct,Disorder,Standard,01-31-03,12-31-99
+4129534,237701005,Pituitary apoplexy,Disorder,Standard,01-31-02,12-31-99
+4319146,95830009,Pituitary infarction,Disorder,Standard,01-31-02,12-31-99
+4043732,230708002,Posterior cerebral circulation hemorrhagic infarction,Disorder,Standard,01-31-02,12-31-99
+4045737,230699008,Pure motor lacunar infarction,Disorder,Standard,01-31-02,12-31-99
+4046361,230701008,Pure sensorimotor lacunar infarction,Disorder,Standard,01-31-02,12-31-99
+4045738,230700009,Pure sensory lacunar infarction,Disorder,Standard,01-31-02,12-31-99
+4146185,307767006,Right sided cerebral infarction,Disorder,Standard,01-31-02,12-31-99
+36717605,723082006,Silent cerebral infarct,Disorder,Standard,01-31-17,12-31-99
+4142739,427296003,Thalamic infarction,Disorder,Standard,07-31-07,12-31-99
+4046358,230694003,Total anterior cerebral circulation infarction,Disorder,Standard,01-31-02,12-31-99
+4046089,230285003,Vascular dementia of acute onset,Disorder,Standard,01-31-02,12-31-99

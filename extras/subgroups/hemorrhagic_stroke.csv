@@ -1,0 +1,183 @@
+﻿Id,Code,Name,Class,Standard Concept Caption,Valid Start Date,Valid End Date
+4108360,195210002,Anterior cerebral artery syndrome,Disorder,Standard,01-31-02,12-31-99
+4045747,230714009,Anterior circulation stroke of uncertain pathology,Disorder,Standard,01-31-02,12-31-99
+763094,436031000124102,Anterior inferior cerebellar artery occlusion with infarction,Disorder,Standard,01-09-13,12-31-99
+761798,16002511000119104,Basilar artery embolism with stroke,Disorder,Standard,01-03-18,12-31-99
+37155661,293671000119109,Behavioral disturbance due to multi-infarct dementia,Disorder,Standard,04-30-22,12-31-99
+4111710,195212005,Brainstem stroke syndrome,Disorder,Standard,01-31-02,12-31-99
+4211509,413758000,Cardioembolic stroke,Disorder,Standard,01-31-05,12-31-99
+36716999,16371781000119100,Cerebellar stroke,Disorder,Standard,01-31-17,12-31-99
+4111711,195213000,Cerebellar stroke syndrome,Disorder,Standard,01-31-02,12-31-99
+43531607,99451000119105,Cerebral infarction due to stenosis of carotid artery,Disorder,Standard,07-31-13,12-31-99
+37312016,788881005,Cerebral ischemic stroke due to aortic arch embolism,Disorder,Standard,01-31-20,12-31-99
+37312017,788880006,Cerebral ischemic stroke due to dissection of artery,Disorder,Standard,01-31-20,12-31-99
+37110239,724426006,Cerebral ischemic stroke due to extracranial large artery atherosclerosis,Disorder,Standard,07-31-17,12-31-99
+37312015,788882003,Cerebral ischemic stroke due to global hypoperfusion with watershed infarct,Disorder,Standard,01-31-20,12-31-99
+37312014,788883008,Cerebral ischemic stroke due to hypercoagulable state,Disorder,Standard,01-31-20,12-31-99
+37110238,724425005,Cerebral ischemic stroke due to intracranial large artery atherosclerosis,Disorder,Standard,07-31-17,12-31-99
+37110678,724993002,Cerebral ischemic stroke due to occlusion of extracranial large artery,Disorder,Standard,07-31-17,12-31-99
+37110237,724424009,Cerebral ischemic stroke due to small artery occlusion,Disorder,Standard,07-31-17,12-31-99
+37110679,724994008,Cerebral ischemic stroke due to stenosis of extracranial large artery,Disorder,Standard,07-31-17,12-31-99
+37312013,788884002,Cerebral ischemic stroke due to subarachnoid hemorrhage,Disorder,Standard,01-31-20,12-31-99
+381316,230690007,Cerebrovascular accident,Disorder,Standard,01-31-02,12-31-99
+619830,9.1514193100011917e+17,Cerebrovascular accident due to embolism of basilar artery,Disorder,Standard,01-31-21,12-31-99
+605421,1.075570610001191e+17,Cerebrovascular accident due to embolism of bilateral anterior cerebral arteries,Disorder,Standard,07-31-21,12-31-99
+608742,1.521486410001191e+17,Cerebrovascular accident due to embolism of bilateral carotid arteries,Disorder,Standard,07-31-21,12-31-99
+602613,58173271000119104,Cerebrovascular accident due to embolism of bilateral cerebellar arteries,Disorder,Standard,07-31-21,12-31-99
+619933,9.3988543100011917e+17,Cerebrovascular accident due to embolism of bilateral middle cerebral arteries,Disorder,Standard,07-31-21,12-31-99
+609188,1.687475910001191e+17,Cerebrovascular accident due to embolism of bilateral posterior cerebral arteries,Disorder,Standard,07-31-21,12-31-99
+618670,7.3233039100011917e+17,Cerebrovascular accident due to embolism of bilateral vertebral arteries,Disorder,Standard,07-31-21,12-31-99
+609263,2.517705610001191e+17,Cerebrovascular accident due to embolism of left anterior cerebral artery,Disorder,Standard,07-31-21,12-31-99
+618688,8.5942275100011904e+17,Cerebrovascular accident due to embolism of left carotid artery,Disorder,Standard,07-31-21,12-31-99
+618628,5.172530510001191e+17,Cerebrovascular accident due to embolism of left vertebral artery,Disorder,Standard,07-31-21,12-31-99
+618684,8.4948870100011904e+17,Cerebrovascular accident due to embolism of right anterior cerebral artery,Disorder,Standard,07-31-21,12-31-99
+609313,3.844301010001191e+17,Cerebrovascular accident due to embolism of right carotid artery,Disorder,Standard,07-31-21,12-31-99
+618677,8.0616165100011917e+17,Cerebrovascular accident due to embolism of right vertebral artery,Disorder,Standard,07-31-21,12-31-99
+37395576,16026991000119108,Cerebrovascular accident due to left carotid artery stenosis,Disorder,Standard,07-31-16,12-31-99
+37167974,1269248000,Cerebrovascular accident due to occlusion of anterior choroidal artery,Disorder,Standard,06-30-23,12-31-99
+602584,2.399652910001191e+17,Cerebrovascular accident due to occlusion of basilar artery,Disorder,Standard,07-31-21,12-31-99
+618658,7.2026150100011917e+17,Cerebrovascular accident due to occlusion of bilateral anterior cerebral arteries,Disorder,Standard,07-31-21,12-31-99
+37169663,16644541000119106,Cerebrovascular accident due to occlusion of bilateral carotid arteries,Disorder,Standard,06-30-23,12-31-99
+609301,3.466748110001191e+17,Cerebrovascular accident due to occlusion of bilateral cerebellar arteries,Disorder,Standard,07-31-21,12-31-99
+609245,1.881748410001191e+17,Cerebrovascular accident due to occlusion of bilateral middle cerebral arteries,Disorder,Standard,07-31-21,12-31-99
+37309665,16644681000119102,Cerebrovascular accident due to occlusion of bilateral pontine arteries,Disorder,Standard,01-31-20,12-31-99
+618689,86553761000119104,Cerebrovascular accident due to occlusion of bilateral posterior cerebral arteries,Disorder,Standard,07-31-21,12-31-99
+619802,8.9894195100011917e+17,Cerebrovascular accident due to occlusion of bilateral vertebral arteries,Disorder,Standard,07-31-21,12-31-99
+609242,1.829608910001191e+17,Cerebrovascular accident due to occlusion of left anterior cerebral artery,Disorder,Standard,07-31-21,12-31-99
+37169493,16023951000119108,Cerebrovascular accident due to occlusion of left anterior choroidal artery,Disorder,Standard,06-30-23,12-31-99
+42539262,16024111000119108,Cerebrovascular accident due to occlusion of left carotid artery,Disorder,Standard,01-31-18,12-31-99
+42535148,16024151000119104,Cerebrovascular accident due to occlusion of left cerebellar artery,Disorder,Standard,01-31-18,12-31-99
+42535508,329461000119102,Cerebrovascular accident due to occlusion of left cerebellar artery by embolus,Disorder,Standard,01-31-18,12-31-99
+42535112,16000511000119104,Cerebrovascular accident due to occlusion of left middle cerebral artery,Disorder,Standard,01-31-18,12-31-99
+42535504,329371000119101,Cerebrovascular accident due to occlusion of left middle cerebral artery by embolus,Disorder,Standard,01-31-18,12-31-99
+42535146,16023991000119104,Cerebrovascular accident due to occlusion of left pontine artery,Disorder,Standard,01-31-18,12-31-99
+42539195,16000351000119108,Cerebrovascular accident due to occlusion of left posterior cerebral artery,Disorder,Standard,01-31-18,12-31-99
+42535506,329431000119105,Cerebrovascular accident due to occlusion of left posterior cerebral artery by embolus,Disorder,Standard,01-31-18,12-31-99
+603206,1.177766110001191e+17,Cerebrovascular accident due to occlusion of left posterior communicating artery,Disorder,Standard,07-31-21,12-31-99
+42535461,292691000119103,Cerebrovascular accident due to occlusion of left vertebral artery,Disorder,Standard,01-31-18,12-31-99
+602615,6.5508146100011904e+17,Cerebrovascular accident due to occlusion of right anterior cerebral artery,Disorder,Standard,07-31-21,12-31-99
+37170180,16024071000119102,Cerebrovascular accident due to occlusion of right anterior choroidal artery,Disorder,Standard,06-30-23,12-31-99
+42535149,16024271000119108,Cerebrovascular accident due to occlusion of right cerebellar artery,Disorder,Standard,01-31-18,12-31-99
+42535507,329451000119104,Cerebrovascular accident due to occlusion of right cerebellar artery by embolus,Disorder,Standard,01-31-18,12-31-99
+42535111,16000431000119108,Cerebrovascular accident due to occlusion of right middle cerebral artery,Disorder,Standard,01-31-18,12-31-99
+42535503,329361000119107,Cerebrovascular accident due to occlusion of right middle cerebral artery by embolus,Disorder,Standard,01-31-18,12-31-99
+42535147,16024031000119100,Cerebrovascular accident due to occlusion of right pontine artery,Disorder,Standard,01-31-18,12-31-99
+42535110,16000391000119104,Cerebrovascular accident due to occlusion of right posterior cerebral artery,Disorder,Standard,01-31-18,12-31-99
+42535505,329421000119107,Cerebrovascular accident due to occlusion of right posterior cerebral artery by embolus,Disorder,Standard,01-31-18,12-31-99
+618685,8.4957928100011917e+17,Cerebrovascular accident due to occlusion of right posterior communicating artery,Disorder,Standard,07-31-21,12-31-99
+37395574,16023911000119108,Cerebrovascular accident due to right carotid artery occlusion,Disorder,Standard,07-31-16,12-31-99
+37395575,16026951000119102,Cerebrovascular accident due to right carotid artery stenosis,Disorder,Standard,07-31-16,12-31-99
+42535460,292681000119101,Cerebrovascular accident due to right vertebral artery occlusion,Disorder,Standard,01-31-18,12-31-99
+37209562,16661971000119104,Cerebrovascular accident due to stenosis of bilateral carotid arteries,Disorder,Standard,07-31-19,12-31-99
+37309657,16661931000119102,Cerebrovascular accident due to stenosis of bilateral vertebral arteries,Disorder,Standard,01-31-20,12-31-99
+42535459,292671000119104,Cerebrovascular accident due to stenosis of left vertebral artery,Disorder,Standard,01-31-18,12-31-99
+42535458,292661000119105,Cerebrovascular accident due to stenosis of right vertebral artery,Disorder,Standard,01-31-18,12-31-99
+37167963,1269237007,Cerebrovascular accident due to thrombosis of anterior cerebral artery,Disorder,Standard,06-30-23,12-31-99
+37173015,5.637896410001191e+17,Cerebrovascular accident due to thrombosis of bilateral carotid arteries,Disorder,Standard,06-30-23,12-31-99
+37172241,4.884086910001191e+17,Cerebrovascular accident due to thrombosis of bilateral cerebellar arteries,Disorder,Standard,06-30-23,12-31-99
+37170768,2.977784210001191e+17,Cerebrovascular accident due to thrombosis of bilateral posterior cerebral arteries,Disorder,Standard,06-30-23,12-31-99
+37173188,5.7896897100011904e+17,Cerebrovascular accident due to thrombosis of bilateral vertebral arteries,Disorder,Standard,06-30-23,12-31-99
+37170052,1.957720210001191e+17,Cerebrovascular accident due to thrombosis of left anterior cerebral artery,Disorder,Standard,06-30-23,12-31-99
+619944,9.5731979100011904e+17,Cerebrovascular accident due to thrombosis of left cerebellar artery,Disorder,Standard,07-31-21,12-31-99
+618686,8.5136573100011917e+17,Cerebrovascular accident due to thrombosis of left posterior cerebral artery,Disorder,Standard,07-31-21,12-31-99
+618672,7.5995098100011904e+17,Cerebrovascular accident due to thrombosis of left vertebral artery,Disorder,Standard,07-31-21,12-31-99
+37174313,8.2806616100011917e+17,Cerebrovascular accident due to thrombosis of right anterior cerebral artery,Disorder,Standard,06-30-23,12-31-99
+604171,4.963699310001191e+17,Cerebrovascular accident due to thrombosis of right cerebellar artery,Disorder,Standard,07-31-21,12-31-99
+609314,38595071000119104,Cerebrovascular accident due to thrombosis of right posterior cerebral artery,Disorder,Standard,07-31-21,12-31-99
+618627,5.114524810001191e+17,Cerebrovascular accident due to thrombosis of right vertebral artery,Disorder,Standard,07-31-21,12-31-99
+42535511,329641000119104,Cerebrovascular accident due to thrombus of basilar artery,Disorder,Standard,01-31-18,12-31-99
+42539166,330791000119108,Cerebrovascular accident due to thrombus of left carotid artery,Disorder,Standard,01-31-18,12-31-99
+42535114,16002111000119106,Cerebrovascular accident due to thrombus of left middle cerebral artery,Disorder,Standard,01-31-18,12-31-99
+42535512,329651000119102,Cerebrovascular accident due to thrombus of right carotid artery,Disorder,Standard,01-31-18,12-31-99
+761789,16002071000119104,Cerebrovascular accident due to thrombus of right cerebellar artery,Disorder,Standard,01-09-17,12-31-99
+42535113,16002031000119102,Cerebrovascular accident due to thrombus of right middle cerebral artery,Disorder,Standard,01-31-18,12-31-99
+762344,329621000119105,Cerebrovascular accident due to thrombus of right vertebral artery,Disorder,Standard,01-09-17,12-31-99
+37163753,12204031000119100,Cerebrovascular accident following heart procedure,Disorder,Standard,03-31-23,12-31-99
+602590,5.9589996100011904e+17,Cerebrovascular accident of basal ganglia,Disorder,Standard,01-31-21,12-31-99
+618640,6.5228733100011904e+17,Cerebrovascular accident of brainstem,Disorder,Standard,01-31-21,12-31-99
+619046,8.8169463100011917e+17,Cerebrovascular accident of medulla oblongata,Disorder,Standard,01-31-21,12-31-99
+604192,7.6902303100011904e+17,Cerebrovascular accident of thalamus,Disorder,Standard,07-31-21,12-31-99
+764721,5571000124103,Cerebrovascular accident with intracranial hemorrhage,Disorder,Standard,01-03-12,12-31-99
+765568,434141000124103,Chronic cerebrovascular accident,Disorder,Standard,01-03-13,12-31-99
+4337830,87555007,Claude's syndrome,Disorder,Standard,01-31-02,12-31-99
+4099974,25133001,Completed stroke,Disorder,Standard,01-31-02,12-31-99
+37162998,1204125007,Cryptogenic non-traumatic subarachnoid hemorrhage of brain,Disorder,Standard,02-28-22,12-31-99
+603326,16891111000119104,Cryptogenic stroke,Disorder,Standard,01-31-21,12-31-99
+4045734,230691006,CVA - cerebrovascular accident due to cerebral artery occlusion,Disorder,Standard,01-31-02,12-31-99
+37396293,716051003,CVA (cerebrovascular accident) during surgery,Disorder,Standard,07-31-16,12-31-99
+4153352,371041009,Embolic stroke,Disorder,Standard,07-31-02,12-31-99
+1340274,OMOP5165929,Exacerbation of cerebrovascular accident,Disorder,Standard,06-05-22,12-31-99
+4090122,281240008,Extension of cerebrovascular accident,Disorder,Standard,01-31-02,12-31-99
+4078314,276220007,Foville syndrome,Disorder,Standard,01-31-02,12-31-99
+35609033,1078001000000105,Haemorrhagic stroke,Disorder,Standard,01-10-17,12-31-99
+4310996,422504002,Ischemic stroke,Disorder,Standard,01-31-07,12-31-99
+43530669,140911000119109,Ischemic stroke with coma,Disorder,Standard,07-31-13,12-31-99
+43530670,140921000119102,Ischemic stroke without coma,Disorder,Standard,07-31-13,12-31-99
+37110765,725132001,Ischemic stroke without residual deficits,Disorder,Standard,07-31-17,12-31-99
+4219010,39925003,"Juvenile myopathy, encephalopathy, lactic acidosis, stroke",Disorder,Standard,01-31-02,12-31-99
+762340,329401000119103,Left anterior cerebral artery embolism with stroke,Disorder,Standard,01-03-18,12-31-99
+761791,16002191000119102,Left cerebellar artery thrombosis with stroke,Disorder,Standard,01-03-18,12-31-99
+4112022,195216008,Left sided cerebral hemisphere cerebrovascular accident,Disorder,Standard,01-31-02,12-31-99
+761795,16002391000119100,Left vertebral artery embolism with stroke,Disorder,Standard,01-03-18,12-31-99
+762345,329631000119108,Left vertebral artery thrombosis with stroke,Disorder,Standard,01-03-18,12-31-99
+37164462,1231168008,Malignant middle cerebral artery syndrome,Disorder,Standard,06-30-22,12-31-99
+4110194,195209007,Middle cerebral artery syndrome,Disorder,Standard,01-31-02,12-31-99
+4077819,276221006,Millard-Gubler syndrome,Disorder,Standard,01-31-02,12-31-99
+379778,56267009,Multi-infarct dementia,Disorder,Standard,01-31-02,12-31-99
+37395562,106021000119105,Multi-infarct dementia due to atherosclerosis,Disorder,Standard,07-31-16,12-31-99
+377254,70936005,"Multi-infarct dementia, uncomplicated",Disorder,Standard,01-31-02,12-31-99
+444091,10349009,Multi-infarct dementia with delirium,Disorder,Standard,01-31-02,12-31-99
+443790,25772007,Multi-infarct dementia with delusions,Disorder,Standard,01-31-02,12-31-99
+443864,14070001,Multi-infarct dementia with depression,Disorder,Standard,01-31-02,12-31-99
+763009,434881000124100,Multiple and bilateral precerebral arterial occlusion with infarction,Disorder,Standard,01-09-13,12-31-99
+762708,430851000124104,Multiple and bilateral precerebral artery stenosis with infarction,Disorder,Standard,01-09-12,12-31-99
+606048,1142056004,Neonatal ischemic stroke,Disorder,Standard,07-31-21,12-31-99
+608982,15984951000119108,Neonatal spontaneous cerebellar hemorrhage,Disorder,Standard,01-31-21,12-31-99
+4159152,371121002,Neonatal stroke,Disorder,Standard,07-31-02,12-31-99
+4006295,111297002,Nonparalytic stroke,Disorder,Standard,01-31-02,12-31-99
+761790,16002151000119108,Nonpyogenic cerebral venous thrombosis with stroke,Disorder,Standard,01-03-18,12-31-99
+37170693,291421000119106,Non-traumatic hemorrhage of subarachnoid space from left vertebral artery,Disorder,Standard,06-30-23,12-31-99
+762096,291471000119107,Non-traumatic hemorrhage of subarachnoid space from right middle cerebral artery,Disorder,Standard,01-03-18,12-31-99
+37170694,291491000119108,Non-traumatic hemorrhage of subarachnoid space from right vertebral artery,Disorder,Standard,06-30-23,12-31-99
+37168086,1269555002,Non-traumatic hemorrhage of subarachnoid space from vertebral artery,Disorder,Standard,06-30-23,12-31-99
+765907,433941000124104,Occlusion and stenosis of middle cerebral artery with infarction,Disorder,Standard,01-03-13,12-31-99
+43531605,9901000119100,Occlusion of cerebral artery with stroke,Disorder,Standard,07-31-13,12-31-99
+4189462,373606000,Occlusive stroke,Disorder,Standard,07-31-02,12-31-99
+4023571,116288000,Paralytic stroke,Disorder,Standard,01-31-02,12-31-99
+37162743,1197363004,Pediatric arterial ischemic stroke,Disorder,Standard,02-28-22,12-31-99
+36716757,722929005,Perinatal arterial ischemic stroke of fetus and/or neonate,Disorder,Standard,01-31-17,12-31-99
+4298750,384993003,Periventricular hemorrhagic venous infarct,Disorder,Standard,01-31-03,12-31-99
+4110195,195211003,Posterior cerebral artery syndrome,Disorder,Standard,01-31-02,12-31-99
+4045748,230715005,Posterior circulation stroke of uncertain pathology,Disorder,Standard,01-31-02,12-31-99
+763095,436041000124107,Posterior inferior cerebellar artery occlusion with infarction,Disorder,Standard,01-09-13,12-31-99
+4301259,78569004,Posterior inferior cerebellar artery syndrome,Disorder,Standard,01-31-02,12-31-99
+4238315,57981008,Progressing stroke,Disorder,Standard,01-31-02,12-31-99
+762339,329391000119100,Right anterior cerebral artery embolism with stroke,Disorder,Standard,01-03-18,12-31-99
+4110196,195217004,Right sided cerebral hemisphere cerebrovascular accident,Disorder,Standard,01-31-02,12-31-99
+761794,16002351000119104,Right vertebral artery embolism with stroke,Disorder,Standard,01-03-18,12-31-99
+762351,330111000119103,Ruptured acquired aneurysm of cerebral artery,Disorder,Standard,01-09-17,12-31-99
+764707,5471000124102,Ruptured aneurysm of intracranial artery,Disorder,Standard,01-03-12,12-31-99
+43530674,142851000119103,Spontaneous cerebellar hemorrhage,Disorder,Standard,07-31-13,12-31-99
+43530727,291571000119106,Spontaneous cerebral hemorrhage,Disorder,Standard,07-31-13,12-31-99
+46273491,140881000119109,Spontaneous cerebral hemorrhage with compression of brain,Disorder,Standard,07-31-15,12-31-99
+37160637,1162966002,Spontaneous epidural intracranial hematoma,Disorder,Standard,09-30-21,12-31-99
+42539269,291541000119104,Spontaneous hemorrhage of brain stem,Disorder,Standard,01-31-18,12-31-99
+42535425,291531000119108,Spontaneous hemorrhage of cerebral hemisphere,Disorder,Standard,01-31-18,12-31-99
+42535424,291521000119105,Spontaneous hemorrhage of cortical intracerebral hemisphere,Disorder,Standard,01-31-18,12-31-99
+42535423,291511000119103,Spontaneous hemorrhage of deep cerebral hemisphere,Disorder,Standard,01-31-18,12-31-99
+37309659,16709811000119106,Spontaneous hemorrhage of subarachnoid space from anterior communicating artery,Disorder,Standard,01-31-20,12-31-99
+42535420,291351000119109,Spontaneous hemorrhage of subarachnoid space from basilar artery,Disorder,Standard,01-31-18,12-31-99
+42535421,291371000119100,Spontaneous hemorrhage of subarachnoid space from intracranial artery,Disorder,Standard,01-31-18,12-31-99
+762095,291401000119102,Spontaneous hemorrhage of subarachnoid space from left middle cerebral artery,Disorder,Standard,01-09-17,12-31-99
+42535422,291411000119104,Spontaneous hemorrhage of subarachnoid space from left posterior communicating artery,Disorder,Standard,01-31-18,12-31-99
+42539183,291481000119105,Spontaneous hemorrhage of subarachnoid space from right posterior communicating artery,Disorder,Standard,01-31-18,12-31-99
+761781,15984991000119104,Spontaneous intracerebral hemorrhage in neonate,Disorder,Standard,01-03-17,12-31-99
+42538062,738779002,Spontaneous intracranial hemorrhage,Disorder,Standard,01-31-18,12-31-99
+4148906,270907008,Spontaneous subarachnoid hemorrhage,Disorder,Standard,01-31-02,12-31-99
+37110241,724429004,Stroke co-occurrent with migraine,Disorder,Standard,07-31-17,12-31-99
+4168056,275434003,Stroke in the puerperium,Disorder,Standard,01-31-02,12-31-99
+4046363,230713003,Stroke of uncertain pathology,Disorder,Standard,01-31-02,12-31-99
+40480273,444657001,Superior cerebellar artery syndrome,Disorder,Standard,07-31-10,12-31-99
+4159140,371040005,Thrombotic stroke,Disorder,Standard,07-31-02,12-31-99
+37109288,329671000119106,Traumatic subarachnoid hemorrhage with loss of consciousness,Disorder,Standard,07-31-17,12-31-99
+4086178,24654003,Weber-Gubler syndrome,Disorder,Standard,01-31-02,12-31-99
