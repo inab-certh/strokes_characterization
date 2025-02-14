@@ -1,3 +1,4 @@
+#!/usr/bin/env Rscript
 connectionDetails <- DatabaseConnector::createConnectionDetails(
   dbms = Sys.getenv("omop_db_dbms"),
   server = Sys.getenv("omop_db_server"),
@@ -33,6 +34,7 @@ getDbCustomAgeGroups <- function(
     age_upper_limit,
     covariate_id,
     cohort_id,
+    covariate_name,
     analysis_id,
     analysis_name
 ) {
@@ -58,18 +60,20 @@ getDbCustomAgeGroups <- function(
   
   covariateRef <- data.frame(
     covariateId = covariate_id,
+    covariateName = covariate_name,
     analysisId = analysis_id,
     conceptId = 0
   )
   
   analysisRef <- data.frame(
     analysisId = analysis_id,
-    analysis_name = analysis_name,
+    analysisName = analysis_name,
     domainId = "Demographics",
-    startDay = NA,
-    endDay = NA,
+    startDay = NA_integer_,
+    endDay = NA_integer_,
     isBinary = "Y",
-    missingIsZeo = NA
+    missingMeansZero = NA_character_,
+    missingIsZero = NA_character_
   )
   
   metaData <- list(sql = sql_rendered, call = match.call())
@@ -91,6 +95,12 @@ analysis_labels = list(
   age_above_80 = "Age >= 80"
 )
 
+covariate_names <- c(
+  "Age group 0 - 55",
+  "Age group 55 - 80",
+  "Age group 80 - ..."
+)
+
 age_limit_prev <- 0
 covariate_id_prev <- 0
 analysis_id <- 1000
@@ -104,9 +114,10 @@ for (i in seq_along(age_limits)) {
     age_lower_limit = age_limit_prev,
     age_upper_limit = age_limits[i],
     covariate_id = as.numeric(paste0(covariate_id_prev + 1, analysis_id)),
+    covariate_name = covariate_names[covariate_id_prev + 1],
     analysis_id = analysis_id,
     cohort_id = 11,
-    analysis_name = "ageGroups"
+    analysis_name = "AgeGroups"
   )
   covariate_id_prev <- covariate_id_prev + 1
   age_limit_prev <- age_limits[i]
@@ -122,8 +133,9 @@ for (i in seq_along(age_limits)) {
       "data",
       paste("custom_covariateData", "ageGroups", i, sep = "_")
     )
-   
   )
+  Andromeda::close(res)
+  res  <- NULL
   message(
     paste(
       "Saved custom age covariates for group",

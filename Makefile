@@ -1,4 +1,6 @@
 .PHONY:
+prepare_data :
+	code/run_cohort_generation.R && code/run_covariate_data_extraction.R && Rscript code/create_custom_age_groups.R
 characterizations : 
 	code/run_characterization.R short_term && code/run_characterization.R medium_term && code/run_characterization.R any_time_prior
 prepare_shiny :

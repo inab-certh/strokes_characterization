@@ -180,3 +180,55 @@ is_multiple_concept <- function(data, analysis_id) {
     dplyr::slice_head(n = 1) |> 
     dplyr::pull(n) > 1
 }
+
+combine_custom_covariates <- function(location) {
+  covariateData_files <- list.files(location, pattern = "^custom", full.names = TRUE)
+  
+  covariateData_list <- lapply(
+    covariateData_files,
+    FeatureExtraction::loadCovariateData
+  )
+  
+  df_names <- names(covariateData_list[[1]])
+  
+  merged_data <- lapply(df_names, function(df_name) {
+    dplyr::bind_rows(
+      lapply(
+        covariateData_list, 
+        \(covariateData, df_name) covariateData[[df_name]] |> dplyr::collect(),
+        df_name
+      )
+    )
+  })
+  names(merged_data) <- df_names
+  
+  Andromeda::andromeda(
+    covariates = merged_data$covariates,
+    covariateRef = merged_data$covariateRef,
+    analysisRef = merged_data$analysisRef |> dplyr::distinct()
+  )
+}
+
+include_custom_covariates_to_analysis <- function(
+    target_covariateData,
+    custom_covariateData
+) {
+  overall_analysisRef <- target_covariateData$analysisRef |> 
+    dplyr::collect() |> 
+    dplyr::bind_rows(custom_covariateData$analysisRef |> dplyr::collect())
+  
+  overall_covariateRef <- target_covariateData$covariateRef |> 
+    dplyr::collect() |> 
+    dplyr::bind_rows(custom_covariateData$covariateRef |> dplyr::collect())
+  
+  overall_covariates <- target_covariateData$covariates |> 
+    dplyr::collect() |> 
+    dplyr::bind_rows(custom_covariateData$covariates |> dplyr::collect())
+  
+  Andromeda::andromeda(
+    covariates = overall_covariates,
+    analysisRef = overall_analysisRef,
+    covariateRef = overall_covariateRef
+  )
+}
+

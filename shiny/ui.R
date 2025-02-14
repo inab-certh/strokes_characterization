@@ -32,7 +32,7 @@ shiny::shinyUI(
           shiny::selectInput(
             inputId = "subgroup_variable",
             label = "Subgroup variable",
-            choices = c("stroke_type"),
+            choices = c("stroke_type", "stroke_type_by_gender"),
             selected = "absent"
           )
         )

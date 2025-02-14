@@ -19,7 +19,7 @@ connectionDetails <- DatabaseConnector::createConnectionDetails(
 covariate_settings_list <- list(
   short_term= FeatureExtraction::createCovariateSettings(
     useDemographicsAge = TRUE,
-    useDemographicsAgeGroup = TRUE,
+    # useDemographicsAgeGroup = TRUE,
     useDemographicsGender = TRUE,
     useConditionOccurrenceShortTerm = TRUE,
     useConditionGroupEraShortTerm = TRUE,
@@ -34,7 +34,7 @@ covariate_settings_list <- list(
   ),
   medium_term = FeatureExtraction::createCovariateSettings(
     useDemographicsAge = TRUE,
-    useDemographicsAgeGroup = TRUE,
+    # useDemographicsAgeGroup = TRUE,
     useDemographicsGender = TRUE,
     useConditionOccurrenceShortTerm = TRUE,
     useConditionGroupEraShortTerm = TRUE,
@@ -49,7 +49,7 @@ covariate_settings_list <- list(
   ),
   any_time_prior = FeatureExtraction::createCovariateSettings(
     useDemographicsAge = TRUE,
-    useDemographicsAgeGroup = TRUE,
+    # useDemographicsAgeGroup = TRUE,
     useDemographicsGender = TRUE,
     useConditionOccurrenceAnyTimePrior = TRUE,
     useConditionGroupEraAnyTimePrior = TRUE,

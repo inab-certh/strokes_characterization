@@ -13,12 +13,36 @@ covariateData <- FeatureExtraction::loadCovariateData(
   )
 )
 
+custom_covariate_files <- list.files(
+  path = "data",
+  pattern = "^custom",
+  full.names = TRUE
+)
+
+if (length(custom_covariate_files > 0)) {
+  message("Found custom covariates")
+  message("Merging with standard covariate data...")
+  custom_covariateData <- combine_custom_covariates("data")
+  combined_covariateData <- include_custom_covariates_to_analysis(
+    target_covariateData = covariateData,
+    custom_covariateData = custom_covariateData
+  )
+  Andromeda::close(covariateData)
+  covariateData <- NULL
+  Andromeda::close(custom_covariateData)
+  custom_covariateData <- NULL
+  covariateData <- combined_covariateData
+}
+
+message("Loading covariate data...")
+
 covariates <- covariateData$covariates |> dplyr::collect()
 covariateRef <- covariateData$covariateRef |> dplyr::collect()
 analysisRef <- covariateData$analysisRef |> dplyr::collect()
 
-FeatureExtraction::summary(covariateData)
+# FeatureExtraction::summary(covariateData)
 
+message("Merging covariate data...")
 extended_covariates <- covariates |> 
   dplyr::left_join(covariateRef, by = "covariateId") |> 
   dplyr::arrange(rowId, analysisId, covariateId) |> 
@@ -41,6 +65,7 @@ extended_covariates <- covariates |>
 # Overall analyses
 # ------------------------------------------------------------------------------
 
+message("Running overall analyses...")
 analysis_ids <- analysisRef |> 
   dplyr::filter(isBinary == "Y") |> 
   dplyr::pull(analysisId)
@@ -79,22 +104,27 @@ overall_analysis <- analysis_ids |>
     analysisRef = analysisRef,
     n_total = n_total
   )
-
+message("Finished running overall analyses")
 
 # ------------------------------------------------------------------------------
 # Subgroup analyses
 # ------------------------------------------------------------------------------
 
+message("Running subgroup analyses...")
+
 ischemic_stroke_concept_ids <- readr::read_csv(
-  "extras/subgroups/ischemic_stroke.csv"
+  "extras/subgroups/ischemic_stroke.csv",
+  col_types = readr::cols()
 ) |> 
   dplyr::pull(Id)
 transient_ischemic_attack_concept_ids <- readr::read_csv(
-  "extras/subgroups/transient_ischemic_attack.csv"
+  "extras/subgroups/transient_ischemic_attack.csv",
+  col_types = readr::cols()
 ) |> 
   dplyr::pull(Id)
 hemorrhagic_stroke_concept_ids <- readr::read_csv(
-  "extras/subgroups/hemorrhagic_stroke.csv"
+  "extras/subgroups/hemorrhagic_stroke.csv",
+  col_types = readr::cols()
 ) |> 
   dplyr::pull(Id)
 
@@ -110,18 +140,26 @@ hemorrhagic_stroke_ids <- extended_covariates |>
   dplyr::filter(conceptId %in% hemorrhagic_stroke_concept_ids) |>
   dplyr::pull(rowId) |>
   unique()
+male_patient_ids <- extended_covariates |>
+  dplyr::filter(conceptId == 8507) |>
+  dplyr::pull(rowId) |>
+  unique()
+female_patient_ids <- extended_covariates |>
+  dplyr::filter(conceptId == 8532) |>
+  dplyr::pull(rowId) |>
+  unique()
 
-subgroup_settings <- list(
+stroke_type_subgroup_settings <- list(
   ischemic_stroke = ischemic_stroke_ids,
   hemorrhagic_stroke = hemorrhagic_stroke_ids,
   transient_ischemic_attack = transient_ischemic_attack_ids
 )
 
-gender_subgroup_analysis <- analysis_ids |>
+stroke_type_subgroup_analysis <- analysis_ids |>
   purrr::map(
     .f = run_subgroup_in_analysis,
     data = extended_covariates,
-    subgroup_settings = subgroup_settings,
+    subgroup_settings = stroke_type_subgroup_settings,
     result_label = "result",
     fun = function(df, n) length(unique(df$rowId)) / n * 100,
     file = save_directory,
@@ -129,9 +167,42 @@ gender_subgroup_analysis <- analysis_ids |>
     subgroup_label = "stroke_type"
   )
 
+stroke_type_gender_subgroup_analysis <- list(
+  ischemic_stroke_male = base::intersect(
+    ischemic_stroke_ids, male_patient_ids
+  ),
+  ischemic_stroke_female = base::intersect(
+    ischemic_stroke_ids, female_patient_ids
+  ),
+  hemorrhagic_stroke_male = base::intersect(
+    hemorrhagic_stroke_ids, male_patient_ids
+  ),
+  hemorragic_stroke_female = base::intersect(
+    hemorrhagic_stroke_ids, female_patient_ids
+  ),
+  transient_ischemic_attack_male = base::intersect(
+    transient_ischemic_attack_ids, male_patient_ids
+  ),
+  transient_ischemic_attack_female = base::intersect(
+    transient_ischemic_attack_ids, female_patient_ids
+  )
+)
+stroke_type_by_gender_subgroup_analysis <- analysis_ids |>
+  purrr::map(
+    .f = run_subgroup_in_analysis,
+    data = extended_covariates,
+    subgroup_settings = stroke_type_gender_subgroup_analysis,
+    result_label = "result",
+    fun = function(df, n) length(unique(df$rowId)) / n * 100,
+    file = save_directory,
+    analysis_name = args[1],
+    subgroup_label = "stroke_type_by_gender"
+  )
+
+message("Finished subgroup analyses")
 
 
-
+message("Saving results...")
 analysisRef |> 
   dplyr::mutate(
     analysisNameShiny = dplyr::case_when(
@@ -157,3 +228,5 @@ analysisRef |>
       paste0(paste(args[1], "analysis_ref", sep = "_"), ".csv")
     )
   )
+
+message("Finished characterization")
