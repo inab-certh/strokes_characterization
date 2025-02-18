@@ -1,8 +1,13 @@
 .PHONY:
 prepare_data :
 	code/run_cohort_generation.R && code/run_covariate_data_extraction.R && Rscript code/create_custom_age_groups.R
+covariate_data :
+	Rscript code/run_covariate_data_extraction.R
 characterizations : 
-	code/run_characterization.R short_term && code/run_characterization.R medium_term && code/run_characterization.R any_time_prior
+	Rscript code/run_characterization.R short_term &&\
+	Rscript code/run_characterization.R medium_term &&\
+	Rscript code/run_characterization.R any_time_prior &&\
+	Rscript code/run_characterization.R prior_stroke
 prepare_shiny :
 	rm -rf shiny/data/* && code/move_results_to_shiny.R
 clean_shiny : 

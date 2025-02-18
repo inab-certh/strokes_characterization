@@ -19,6 +19,9 @@ connectionDetails <- DatabaseConnector::createConnectionDetails(
 covariate_settings_list <- list(
   short_term= FeatureExtraction::createCovariateSettings(
     useDemographicsAge = TRUE,
+    useDemographicsPriorObservationTime = TRUE,
+    useDemographicsPostObservationTime = TRUE,
+    useDemographicsTimeInCohort = TRUE,
     # useDemographicsAgeGroup = TRUE,
     useDemographicsGender = TRUE,
     useConditionOccurrenceShortTerm = TRUE,
@@ -34,6 +37,9 @@ covariate_settings_list <- list(
   ),
   medium_term = FeatureExtraction::createCovariateSettings(
     useDemographicsAge = TRUE,
+    useDemographicsPriorObservationTime = TRUE,
+    useDemographicsPostObservationTime = TRUE,
+    useDemographicsTimeInCohort = TRUE,
     # useDemographicsAgeGroup = TRUE,
     useDemographicsGender = TRUE,
     useConditionOccurrenceShortTerm = TRUE,
@@ -49,6 +55,9 @@ covariate_settings_list <- list(
   ),
   any_time_prior = FeatureExtraction::createCovariateSettings(
     useDemographicsAge = TRUE,
+    useDemographicsPriorObservationTime = TRUE,
+    useDemographicsPostObservationTime = TRUE,
+    useDemographicsTimeInCohort = TRUE,
     # useDemographicsAgeGroup = TRUE,
     useDemographicsGender = TRUE,
     useConditionOccurrenceAnyTimePrior = TRUE,
@@ -63,6 +72,9 @@ covariate_settings_list <- list(
   ),
   prior_stroke = FeatureExtraction::createCovariateSettings(
     useDemographicsAge = TRUE,
+    useDemographicsPriorObservationTime = TRUE,
+    useDemographicsPostObservationTime = TRUE,
+    useDemographicsTimeInCohort = TRUE,
     # useDemographicsAgeGroup = TRUE,
     useDemographicsGender = TRUE,
     useConditionOccurrenceAnyTimePrior = TRUE,

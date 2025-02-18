@@ -50,10 +50,16 @@ shiny::shinyServer(function(input, output,session) {
     check_is_measurement_range <- shiny::reactive({
       if (current_analysis()$id %in% multiple_concepts) TRUE else FALSE
     })
+    check_is_continuous <- shiny::reactive({
+      if (current_analysis()$id %in% continuous_concepts) TRUE else FALSE
+    })
     
     results_file <- shiny::reactive({
       if (file.exists(file_name_reactive())) {
-        result <- readr::read_csv(file.path(file_name_reactive())) 
+        result <- readr::read_csv(file.path(file_name_reactive()))
+        if (check_is_continuous()) {
+          return(result)
+        }
         if (check_is_measurement_range()) {
           result <- result |> 
             dplyr::mutate(
@@ -98,9 +104,18 @@ shiny::shinyServer(function(input, output,session) {
                 formattable::as.datatable()
             })
           } else {
-            output[[current_output()]] <- shiny::renderPlot({
-              result <- plot_density(results_file(), check_is_subgroup()) |> 
-                formattable::as.datatable()
+            output[[current_output()]] <- DT::renderDataTable({
+              res <- readr::read_csv(file_name_reactive()) |> 
+                dplyr::select(-conceptId)
+              DT::datatable(
+                res,
+                colnames = c(
+                  "Analysis",
+                  "Covariate name",
+                  "1%", "5%", "10%", "25%",
+                  "50%", "75%", "90%", "95%", "99%")
+              ) |> 
+                DT::formatRound(3:11, digits = 0)
             })
           }
         }

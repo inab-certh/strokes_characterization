@@ -4,6 +4,9 @@ multiple_concepts <- analysis_ref |>
   dplyr::filter(multipleConceptCheck) |> 
   dplyr::pull(analysisId)
 
+continuous_concepts <- analysis_ref |> 
+  dplyr::filter(is.na(multipleConceptCheck)) |> 
+  dplyr::pull(analysisId)
 
 form_table <- function(data, is_subgroup = FALSE, is_measurement_range = FALSE) {
   formattable_options <- list()

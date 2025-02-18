@@ -85,7 +85,21 @@ analysisRef <- dplyr::tibble(
   analysisId = analysis_ids,
   multipleConceptCheck = multiple_concept_check
 ) |> 
+  dplyr::bind_rows(
+    dplyr::tibble(
+      analysisId = analysisRef |> 
+        dplyr::filter(isBinary == "N") |> 
+        dplyr::pull(analysisId),
+      multipleConceptCheck = NA
+    )
+  ) |> 
   dplyr::left_join(analysisRef, by = "analysisId")
+
+# analysisRef <- dplyr::tibble(
+#   analysisId = analysis_ids,
+#   multipleConceptCheck = multiple_concept_check
+# ) |> 
+#   dplyr::left_join(analysisRef, by = "analysisId")
 
 save_directory <- file.path(
   "results",
@@ -99,7 +113,7 @@ if (!dir.exists(save_directory)) {
 
 n_total <- length(unique(extended_covariates$rowId))
 
-overall_analysis <- analysis_ids |> 
+overall_analysis <- analysisRef$analysisId |> 
   purrr::map(
     .f = run_in_analysis,
     data = extended_covariates, 
@@ -113,7 +127,7 @@ overview <- data.frame(
   cohort_id = cohort_definition$cohortId,
   cohort_name = cohort_definition$cohortName,
   cohort_description = cohort_definition$logicDescription,
-  n_records = n_total
+  n_distinct_patients = n_total
 )
 readr::write_csv(
   overview,
@@ -187,7 +201,7 @@ readr::write_csv(
   )
 )
 
-stroke_type_subgroup_analysis <- analysis_ids |>
+stroke_type_subgroup_analysis <- analysisRef$analysisId |>
   purrr::map(
     .f = run_subgroup_in_analysis,
     data = extended_covariates,
@@ -219,7 +233,7 @@ stroke_type_by_gender_subgroup_settings <- list(
     transient_ischemic_attack_ids, female_patient_ids
   )
 )
-stroke_type_by_gender_subgroup_analysis <- analysis_ids |>
+stroke_type_by_gender_subgroup_analysis <- analysisRef$analysisId |>
   purrr::map(
     .f = run_subgroup_in_analysis,
     data = extended_covariates,
@@ -253,6 +267,7 @@ analysisRef |>
   dplyr::mutate(
     analysisNameShiny = dplyr::case_when(
       stringr::str_detect(analysisName, "ConditionGroup") ~ "Condition groups",
+      stringr::str_detect(analysisName, "TimeInCohort") ~ "Time in cohort",
       stringr::str_detect(analysisName, "DrugExposure") ~ "Drugs",
       stringr::str_detect(analysisName, "Gender") ~ "Gender",
       stringr::str_detect(analysisName, "AgeGroup") ~ "Age groups",

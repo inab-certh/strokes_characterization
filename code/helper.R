@@ -28,50 +28,86 @@ run_in_analysis <- function(
       dplyr::group_by(covariateName) |> 
       dplyr::summarise(result = dplyr::n() / n_total * 100, .groups = "drop")
   }
-  
+
   multiple_concept <- analysisRef |> 
     dplyr::filter(analysisId == analysis_id) |> 
     dplyr::pull(multipleConceptCheck)
   
-  if (!multiple_concept & !is.null(n_total)) {
-    
+  if (is.na(multiple_concept)) {
     result_to_return <- data |> 
       dplyr::filter(analysisId == analysis_id) |> 
       dplyr::group_by(conceptId, covariateName) |> 
-      tidyr::nest() |> 
+      tidyr::nest() |>
       dplyr::mutate(
-        result = unlist(purrr::map(.x = data, .f = fun)),
-        n = purrr::map_dbl(.x = data, .f = nrow)
+        result = purrr::map(
+          .x = data,
+          .f = \(data) {
+            res <- quantile(
+              data$covariateValue,
+              probs = c(.01, .05, .1, .25, .5, .75, .9, .95, .99),
+              na.rm = TRUE
+            )
+            data.frame(
+              q_01 = res[1],
+              q_05 = res[2],
+              q_10 = res[3],
+              q_25 = res[4],
+              q_50 = res[5],
+              q_75 = res[6],
+              q_90 = res[7],
+              q_95 = res[8],
+              q_99 = res[9]
+            )
+          }
+        )
       ) |> 
       dplyr::select(-data) |> 
-      dplyr::arrange(dplyr::desc(result)) |> 
-      dplyr::relocate(conceptId) |> 
-      dplyr::relocate(n, .after = conceptId) |> 
-      dplyr::ungroup()
-    
-  } else if (multiple_concept) {
-    
-    result_to_return <- data |> 
-      dplyr::filter(analysisId == analysis_id) |> 
-      dplyr::group_by(conceptId) |> 
-      tidyr::nest() |> 
-      dplyr::mutate(
-        result = purrr::map(.x = data, .f = .f1),
-        n = purrr::map_dbl(.x = data, .f = nrow)
-      ) |> 
-      dplyr::select(-data) |> 
-      tidyr::unnest(result) |> 
-      dplyr::arrange(dplyr::desc(n), conceptId, result) |> 
+      tidyr::unnest(cols = c(result)) |> 
       dplyr::ungroup() |> 
-      dplyr::mutate(
-        names = stringr::str_extract(covariateName, pattern = "^[^:]+(?= :)"),
-        variable  = stringr::str_extract(covariateName, pattern ="(?<=: ).*")
-      ) |>
-      dplyr::select(-covariateName) |>
-      dplyr::mutate(names = stringr::str_replace_all(names, " ", "_")) |>
-      tidyr::pivot_wider(names_from = names, values_from = result)
+      dplyr::mutate(analysis = "overall") |> 
+      dplyr::relocate(analysis)
     
+  } else {
+    
+    if (!multiple_concept & !is.null(n_total)) {
+      result_to_return <- data |> 
+        dplyr::filter(analysisId == analysis_id) |> 
+        dplyr::group_by(conceptId, covariateName) |> 
+        tidyr::nest() |> 
+        dplyr::mutate(
+          result = unlist(purrr::map(.x = data, .f = fun)),
+          n = purrr::map_dbl(.x = data, .f = nrow)
+        ) |> 
+        dplyr::select(-data) |> 
+        dplyr::arrange(dplyr::desc(result)) |> 
+        dplyr::relocate(conceptId) |> 
+        dplyr::relocate(n, .after = conceptId) |> 
+        dplyr::ungroup()
+      
+    } else if (multiple_concept) {
+      
+      result_to_return <- data |> 
+        dplyr::filter(analysisId == analysis_id) |> 
+        dplyr::group_by(conceptId) |> 
+        tidyr::nest() |> 
+        dplyr::mutate(
+          result = purrr::map(.x = data, .f = .f1),
+          n = purrr::map_dbl(.x = data, .f = nrow)
+        ) |> 
+        dplyr::select(-data) |> 
+        tidyr::unnest(result) |> 
+        dplyr::arrange(dplyr::desc(n), conceptId, result) |> 
+        dplyr::ungroup() |> 
+        dplyr::mutate(
+          names = stringr::str_extract(covariateName, pattern = "^[^:]+(?= :)"),
+          variable  = stringr::str_extract(covariateName, pattern ="(?<=: ).*")
+        ) |>
+        dplyr::select(-covariateName) |>
+        dplyr::mutate(names = stringr::str_replace_all(names, " ", "_")) |>
+        tidyr::pivot_wider(names_from = names, values_from = result)
+    }
   }
+  
   
   if (!is.null(file)) {
     save_location <- file.path(
@@ -82,7 +118,7 @@ run_in_analysis <- function(
       x = result_to_return,
       file = save_location
     )
-    message(paste("Wrote result in", save_location))
+    message(paste("\t - Wrote result in", save_location))
   }
   
   return(result_to_return)
@@ -106,41 +142,76 @@ run_subgroup_in_analysis <- function(
     dplyr::filter(analysisId == analysis_id) |> 
     dplyr::pull(multipleConceptCheck)
   for (i in seq_along(subgroup_settings)) {
-    
-    if (!multiple_concept) {
+    if (is.na(multiple_concept)) {
       tmp <- data |> 
         dplyr::filter(rowId %in% subgroup_settings[[i]]) |> 
         dplyr::filter(analysisId == analysis_id) |> 
-        dplyr::group_by(covariateName) |> 
-        tidyr::nest() |> 
+        dplyr::group_by(conceptId, covariateName) |> 
+        tidyr::nest() |>
         dplyr::mutate(
-          result = sapply(data, fun, n = length(subgroup_settings[[i]]))
+          result = purrr::map(
+            .x = data,
+            .f = \(data) {
+              res <- quantile(
+                data$covariateValue,
+                probs = c(.01, .05, .1, .25, .5, .75, .9, .95, .99),
+                na.rm = TRUE
+              )
+              data.frame(
+                q_01 = res[1],
+                q_05 = res[2],
+                q_10 = res[3],
+                q_25 = res[4],
+                q_50 = res[5],
+                q_75 = res[6],
+                q_90 = res[7],
+                q_95 = res[8],
+                q_99 = res[9]
+              )
+            }
+          )
         ) |> 
         dplyr::select(-data) |> 
+        tidyr::unnest(cols = c(result)) |> 
         dplyr::ungroup() |> 
-        dplyr::arrange(dplyr::desc(result)) |> 
-        dplyr::rename("{result_label}" := "result") |> 
-        dplyr::mutate(subgroup_value = subgroup_names[i])
-    } else {
-      tmp <- data |> 
-        dplyr::filter(rowId %in% subgroup_settings[[i]]) |> 
-        dplyr::filter(analysisId == analysis_id) |> 
-        dplyr::group_by(conceptId) |> 
-        tidyr::nest() |> 
-        dplyr::mutate(result = purrr::map(.x = data, .f = .f1)) |> 
-        dplyr::select(-data) |> 
-        tidyr::unnest(result) |> 
-        dplyr::arrange(conceptId, result) |> 
-        dplyr::ungroup() |> 
-        dplyr::mutate(
-          names = stringr::str_extract(covariateName, pattern = "^[^:]+(?= :)"),
-          variable  = stringr::str_extract(covariateName, pattern ="(?<=: ).*")
-        ) |>
-        dplyr::select(-covariateName) |>
-        dplyr::mutate(names = stringr::str_replace_all(names, " ", "_")) |>
-        tidyr::pivot_wider(names_from = names, values_from = result) |> 
         dplyr::mutate(subgroup_value = subgroup_names[i]) |> 
-        dplyr::relocate(subgroup_value, .after = conceptId)
+        dplyr::relocate(subgroup_value)
+    } else {
+      if (!multiple_concept) {
+        tmp <- data |> 
+          dplyr::filter(rowId %in% subgroup_settings[[i]]) |> 
+          dplyr::filter(analysisId == analysis_id) |> 
+          dplyr::group_by(covariateName) |> 
+          tidyr::nest() |> 
+          dplyr::mutate(
+            result = sapply(data, fun, n = length(subgroup_settings[[i]]))
+          ) |> 
+          dplyr::select(-data) |> 
+          dplyr::ungroup() |> 
+          dplyr::arrange(dplyr::desc(result)) |> 
+          dplyr::rename("{result_label}" := "result") |> 
+          dplyr::mutate(subgroup_value = subgroup_names[i])
+      } else {
+        tmp <- data |> 
+          dplyr::filter(rowId %in% subgroup_settings[[i]]) |> 
+          dplyr::filter(analysisId == analysis_id) |> 
+          dplyr::group_by(conceptId) |> 
+          tidyr::nest() |> 
+          dplyr::mutate(result = purrr::map(.x = data, .f = .f1)) |> 
+          dplyr::select(-data) |> 
+          tidyr::unnest(result) |> 
+          dplyr::arrange(conceptId, result) |> 
+          dplyr::ungroup() |> 
+          dplyr::mutate(
+            names = stringr::str_extract(covariateName, pattern = "^[^:]+(?= :)"),
+            variable  = stringr::str_extract(covariateName, pattern ="(?<=: ).*")
+          ) |>
+          dplyr::select(-covariateName) |>
+          dplyr::mutate(names = stringr::str_replace_all(names, " ", "_")) |>
+          tidyr::pivot_wider(names_from = names, values_from = result) |> 
+          dplyr::mutate(subgroup_value = subgroup_names[i]) |> 
+          dplyr::relocate(subgroup_value, .after = conceptId)
+      }
     }
     
     result_to_return[[i]] <- tmp
@@ -164,7 +235,7 @@ run_subgroup_in_analysis <- function(
       x = dplyr::bind_rows(result_to_return),
       file = save_location
     )
-    message(paste("Wrote result in", save_location))
+    message(paste("\t - Wrote result in", save_location))
   }
   
   return(result_to_return)

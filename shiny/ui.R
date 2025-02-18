@@ -24,7 +24,12 @@ shiny::shinyUI(
         shiny::selectInput(
           inputId = "analysis_name",
           label = "Analysis",
-          choices = c("short_term", "medium_term", "any_time_prior"),
+          choices = c(
+            "short_term",
+            "medium_term",
+            "any_time_prior",
+            "prior_stroke"
+          ),
           selected = "short_term"
         ),
         shiny::conditionalPanel(
@@ -47,6 +52,10 @@ shiny::shinyUI(
             shiny::tabPanel(
               title = "Overview",
               DT::dataTableOutput("overall_overview")
+            ),
+            shiny::tabPanel(
+              title = "Time in cohort",
+              DT::dataTableOutput("overall_time_in_cohort")
             ),
             shiny::tabPanel(
               title = "Age groups",
@@ -89,6 +98,10 @@ shiny::shinyUI(
             shiny::tabPanel(
               title = "Overview",
               DT::dataTableOutput("subgroup_analysis_overview")
+            ),
+            shiny::tabPanel(
+              title = "Time in cohort",
+              DT::dataTableOutput("subgroup_analysis_time_in_cohort")
             ),
             shiny::tabPanel(
               title = "Age groups",
