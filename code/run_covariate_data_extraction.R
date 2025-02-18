@@ -59,6 +59,20 @@ covariate_settings_list <- list(
     useMeasurementAnyTimePrior = TRUE,
     useMeasurementRangeGroupAnyTimePrior = TRUE,
     useMeasurementValueAnyTimePrior = TRUE,
+    endDays = 30
+  ),
+  prior_stroke = FeatureExtraction::createCovariateSettings(
+    useDemographicsAge = TRUE,
+    # useDemographicsAgeGroup = TRUE,
+    useDemographicsGender = TRUE,
+    useConditionOccurrenceAnyTimePrior = TRUE,
+    useConditionGroupEraAnyTimePrior = TRUE,
+    useDrugExposureAnyTimePrior = TRUE,
+    useDrugGroupEraAnyTimePrior = TRUE,
+    useProcedureOccurrenceAnyTimePrior = TRUE,
+    useMeasurementAnyTimePrior = TRUE,
+    useMeasurementRangeGroupAnyTimePrior = TRUE,
+    useMeasurementValueAnyTimePrior = TRUE,
     endDays = -1
   )
 )

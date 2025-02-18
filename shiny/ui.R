@@ -45,6 +45,10 @@ shiny::shinyUI(
           shiny::tabsetPanel(
             id = "overall_results",
             shiny::tabPanel(
+              title = "Overview",
+              DT::dataTableOutput("overall_overview")
+            ),
+            shiny::tabPanel(
               title = "Age groups",
               DT::dataTableOutput("overall_age_groups")
             ),
@@ -82,6 +86,10 @@ shiny::shinyUI(
           tabName = "subgroup_analysis",
           shiny::tabsetPanel(
             id = "subgroup_results",
+            shiny::tabPanel(
+              title = "Overview",
+              DT::dataTableOutput("subgroup_analysis_overview")
+            ),
             shiny::tabPanel(
               title = "Age groups",
               DT::dataTableOutput("subgroup_analysis_age_groups")

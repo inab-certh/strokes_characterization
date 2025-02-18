@@ -42,6 +42,11 @@ analysisRef <- covariateData$analysisRef |> dplyr::collect()
 
 # FeatureExtraction::summary(covariateData)
 
+cohort_definition <- readr::read_csv(
+  "data/cohort_definition.csv",
+  col_types = readr::cols()
+)
+
 message("Merging covariate data...")
 extended_covariates <- covariates |> 
   dplyr::left_join(covariateRef, by = "covariateId") |> 
@@ -104,6 +109,19 @@ overall_analysis <- analysis_ids |>
     analysisRef = analysisRef,
     n_total = n_total
   )
+overview <- data.frame(
+  cohort_id = cohort_definition$cohortId,
+  cohort_name = cohort_definition$cohortName,
+  cohort_description = cohort_definition$logicDescription,
+  n_records = n_total
+)
+readr::write_csv(
+  overview,
+  file.path(
+    save_directory,
+    paste0(paste(args[1], "overall", "overview", sep = "_"), ".csv")
+  )
+)
 message("Finished running overall analyses")
 
 # ------------------------------------------------------------------------------
@@ -155,6 +173,20 @@ stroke_type_subgroup_settings <- list(
   transient_ischemic_attack = transient_ischemic_attack_ids
 )
 
+stroke_type_overview <- data.frame(
+  subgroup = names(stroke_type_subgroup_settings),
+  n = lapply(stroke_type_subgroup_settings, length) |> unlist()
+)
+rownames(stroke_type_overview) <- NULL
+
+readr::write_csv(
+  stroke_type_overview,
+  file.path(
+    save_directory,
+    paste0(paste(args[1], "subgroup_analysis", "stroke_type", "overview", sep = "_"), ".csv")
+  )
+)
+
 stroke_type_subgroup_analysis <- analysis_ids |>
   purrr::map(
     .f = run_subgroup_in_analysis,
@@ -167,7 +199,7 @@ stroke_type_subgroup_analysis <- analysis_ids |>
     subgroup_label = "stroke_type"
   )
 
-stroke_type_gender_subgroup_analysis <- list(
+stroke_type_by_gender_subgroup_settings <- list(
   ischemic_stroke_male = base::intersect(
     ischemic_stroke_ids, male_patient_ids
   ),
@@ -191,13 +223,27 @@ stroke_type_by_gender_subgroup_analysis <- analysis_ids |>
   purrr::map(
     .f = run_subgroup_in_analysis,
     data = extended_covariates,
-    subgroup_settings = stroke_type_gender_subgroup_analysis,
+    subgroup_settings = stroke_type_by_gender_subgroup_settings,
     result_label = "result",
     fun = function(df, n) length(unique(df$rowId)) / n * 100,
     file = save_directory,
     analysis_name = args[1],
     subgroup_label = "stroke_type_by_gender"
   )
+
+
+stroke_type_by_gender_overview <- data.frame(
+  subgroup = names(stroke_type_by_gender_subgroup_settings),
+  n = lapply(stroke_type_by_gender_subgroup_settings, length) |> unlist()
+)
+rownames(stroke_type_by_gender_overview) <- NULL
+readr::write_csv(
+  stroke_type_by_gender_overview,
+  file.path(
+    save_directory,
+    paste0(paste(args[1], "subgroup_analysis", "stroke_type_by_gender", "overview", sep = "_"), ".csv")
+  )
+)
 
 message("Finished subgroup analyses")
 

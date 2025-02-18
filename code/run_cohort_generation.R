@@ -22,6 +22,9 @@ cohortDefinitionSet <- ROhdsiWebApi::exportCohortDefinitionSet(
   cohortIds = 11
 )
 
+readr::write_csv(cohortDefinitionSet, "data/cohort_definition.csv")
+
+
 CohortGenerator::createCohortTables(
   connection = conn,
   cohortDatabaseSchema = "results"

@@ -22,20 +22,24 @@ shiny::shinyServer(function(input, output,session) {
     })
     
     file_name_reactive <- shiny::reactive({
-      
-    file_name <- input$analysis_name
-    
-    selected_menu1 <- input$menu1
-    if (selected_menu1 == "overall") {
-      file_name <- paste(file_name, "overall", sep = "_")
-    } else {
-      file_name <- paste(file_name, "subgroup", input$subgroup_variable, sep = "_")
-    }
-    
-    file_name <- paste(file_name, "analysis_id", current_analysis()$id, sep = "_")
-    
-    file.path("data", paste0(file_name, ".csv"))
-    
+      file_name <- input$analysis_name
+      selected_menu1 <- input$menu1
+      if (selected_menu1 == "overall") {
+        file_name <- paste(file_name, "overall", sep = "_")
+      } else {
+        file_name <- paste(
+          file_name,
+          "subgroup_analysis",
+          input$subgroup_variable,
+          sep = "_"
+        )
+      }
+      if (stringr::str_detect(current_output(), "overview")) {
+          file_name <- paste(file_name, "overview", sep = "_")
+      } else {
+        file_name <- paste(file_name, "analysis_id", current_analysis()$id, sep = "_")
+      }
+      file.path("data", paste0(file_name, ".csv"))
     })
     
     check_is_subgroup <- shiny::reactive({
@@ -48,7 +52,6 @@ shiny::shinyServer(function(input, output,session) {
     })
     
     results_file <- shiny::reactive({
-      
       if (file.exists(file_name_reactive())) {
         result <- readr::read_csv(file.path(file_name_reactive())) 
         if (check_is_measurement_range()) {
@@ -65,9 +68,7 @@ shiny::shinyServer(function(input, output,session) {
       } else {
         NA
       }
-      
     })
-    
     
     current_output <- shiny::reactive({
       result <- paste(
@@ -80,30 +81,36 @@ shiny::shinyServer(function(input, output,session) {
     })
     
     shiny::observe({
-      
-      if (dplyr::is.tbl(results_file())) {
-        
-        if (current_analysis()$is_binary) {
-          output[[current_output()]] <- DT::renderDataTable({
-            result <- form_table(
-              results_file(), 
-              check_is_subgroup(),
-              check_is_measurement_range()
-            ) |> 
-              formattable::as.datatable()
-          })
-        } else {
-          output[[current_output()]] <- shiny::renderPlot({
-            result <- plot_density(results_file(), check_is_subgroup()) |> 
-              formattable::as.datatable()
-          })
+      if (stringr::str_detect(current_output(), "overview")) {
+        output[[current_output()]] <- DT::renderDataTable({
+          res <- readr::read_csv( file_name_reactive())
+          res
+        })
+      } else {
+        if (dplyr::is.tbl(results_file())) {
+          if (current_analysis()$is_binary) {
+            output[[current_output()]] <- DT::renderDataTable({
+              result <- form_table(
+                results_file(), 
+                check_is_subgroup(),
+                check_is_measurement_range()
+              ) |> 
+                formattable::as.datatable()
+            })
+          } else {
+            output[[current_output()]] <- shiny::renderPlot({
+              result <- plot_density(results_file(), check_is_subgroup()) |> 
+                formattable::as.datatable()
+            })
+          }
         }
       }
     })
     
-    shiny::observe(print(current_analysis()))
+    # shiny::observe(print(current_analysis()))
     shiny::observe(print(paste("Current output:", current_output())))
+    shiny::observe(print(paste("Analysis name:", input$analysis_name)))
     shiny::observe(print(file_name_reactive()))
-    shiny::observe(print(check_is_measurement_range()))
-    shiny::observe(print(results_file() |> data.frame() |> head()))
+    # shiny::observe(print(check_is_measurement_range()))
+    # shiny::observe(print(results_file() |> data.frame() |> head()))
   })

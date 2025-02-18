@@ -155,7 +155,7 @@ run_subgroup_in_analysis <- function(
       file,
       paste0(
         analysis_name, "_",
-        paste("subgroup", subgroup_label,
+        paste("subgroup_analysis", subgroup_label,
               "analysis_id", analysis_id, sep = "_"),
         ".csv"
       )
